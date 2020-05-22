@@ -77,5 +77,10 @@ class Nasional extends CI_Model{
 		function input_data($data,$table){
 			$this->db->insert($table,$data);
 		}
+
+		public function getKabKota($provinsi){
+			$query = $this->db->query('SELECT id_kota, nama_kota FROM tb_mou_rf_kota  WHERE id_provinsi = "'.$provinsi.'" ORDER BY nama_kota');
+			return $query->result();
+		}
 	}
 	?>

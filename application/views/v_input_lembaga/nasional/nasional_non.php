@@ -53,12 +53,7 @@
 					<label class="col-sm-2 col-form-label"> Kota </label>
 					<div class="col-sm-4">
 						<select name="kota" id="kota" class="form-control" required>          
-							<option disabled="true" selected="true">Pilih Kabupaten/Kota</option>                    
-							<?php          
-							foreach($kota as $data){ // Lakukan looping pada variabel siswa dari controller           
-								echo "<option value='".$data->id_kota."'>".$data->nama_kota."</option>";          
-							}          
-							?>        
+							<option disabled="true" selected="true">Pilih Kabupaten/Kota</option>                           
 						</select>
 					</div>
 				</div>
@@ -108,3 +103,30 @@
 			<!-- End Form -->
 		</div>
 	</div>
+
+	<script>
+		$('#provinsi').change(function(){ 
+			var provinsi = $(this).val();
+			$.ajax({
+				url : "<?php echo site_url('c_input_lembaga/getKabKota');?>",
+				type : "POST",
+				data : {provinsi: provinsi},
+				async : true,
+				dataType : 'json',
+				success: function(data){
+
+					var html = '';
+					var i;
+					var namaBulan = '';
+					for(i=0; i<data.length; i++){
+						html += '<option value='+data[i].id_kota+'>'+data[i].nama_kota+'</option>';
+					}
+					$('#kota').html(html);
+
+				},
+				error: function(ts) { 
+					alert(ts.responseText) 
+				}
+			});  
+		});
+	</script>

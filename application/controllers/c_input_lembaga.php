@@ -132,4 +132,12 @@ class C_input_lembaga extends CI_Controller {
         $kodenegara = $this->internasional->getKodeNegara($negara);
         echo json_encode($kodenegara);
     }
+
+    function getKabKota() {
+        $this->load->model('m_input_lembaga/nasional');
+
+        $provinsi = $this->input->post('provinsi', true);
+        $kabkota = $this->nasional->getKabKota($provinsi);
+        echo json_encode($kabkota);
+    }
 }
