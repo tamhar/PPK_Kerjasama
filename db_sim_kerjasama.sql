@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2020 at 06:37 AM
+-- Generation Time: May 22, 2020 at 06:40 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -883,6 +883,7 @@ CREATE TABLE `tb_mou_rf_perwakilanlembaga` (
   `ID_PROVINSI` varchar(6) NOT NULL,
   `ID_LEMBAGA` char(6) NOT NULL,
   `ID_KOTA` varchar(7) NOT NULL,
+  `NAMA` varchar(100) NOT NULL,
   `NAMA_PERWAKILAN_LEMBAGA` varchar(50) NOT NULL,
   `JENIS_KELAMIN_PERWAKILAN_LEMBAGA` char(9) NOT NULL,
   `JABATAN` varchar(50) DEFAULT NULL,

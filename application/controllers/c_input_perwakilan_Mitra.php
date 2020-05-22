@@ -34,9 +34,85 @@ class C_input_perwakilan_Mitra extends CI_Controller {
 	{
 		$result = $this->m_detail_data_lembaga->detail_data($id);
 
+		$notelp = explode("-", $result[0]->notelp_lembaga);
+
 		$data['result'] = $result;
+		$data['kode'] = $notelp[0];
+		$data['telp'] = $notelp[1];
 
 		$this->load->template('view_input_perwakilan_Mitra_internasional', $data);
+	}
+
+	public function editNasional($id) {
+		$result = $this->PerwakilanMitraModel->detail_data($id);
+
+		$data['result'] = $result;
+
+
+		$this->load->template('view_input_edit_perwakilan_Mitra', $data);
+	}
+
+	public function editInternasional($id) {
+
+		$result = $this->PerwakilanMitraModel->detail_data($id);
+
+		$data['result'] = $result;
+
+		print_r($result);
+
+		
+		$this->load->template('view_input_edit_perwakilan_Mitra_internasional', $data);
+	}
+
+	public function simpanEditMitraInternasional()
+	{
+		$idperwakilan = $this->input->post('idperwakilan');
+		$idlembaga = $this->input->post('idlembaga');
+		$namalembaga = $this->input->post('namalembaga');
+		$nama = $this->input->post('nama');
+		$jabatan = $this->input->post('jabatan');
+		$jeniskelamin = $this->input->post('jeniskelamin');
+		$alamat = $this->input->post('alamat');
+		$provinsi = $this->input->post('provinsi');
+		$kota = $this->input->post('kota');
+		$negara = $this->input->post('negara');
+		$kodenegara = $this->input->post('kodenegara');
+		$kodepos = $this->input->post('kodepos');
+		$notelepon = $this->input->post('notelepon');
+		$email = $this->input->post('email');
+
+		$result = $this->PerwakilanMitraModel->editDataMitraInternasional($idperwakilan,$nama,$idlembaga,$namalembaga,$jeniskelamin,$jabatan,$alamat,$provinsi,$kota,$negara,$kodenegara,$kodepos,$notelepon,$email);
+
+		if($result == 1) {
+			redirect('c_data_perwakilan_Mitra/index');
+		}
+
+	}
+
+	public function simpanEditMitraNasional($value='')
+	{
+		$idperwakilan = $this->input->post('idperwakilan');
+		$idlembaga = $this->input->post('idlembaga');
+		$namalembaga = $this->input->post('namalembaga');
+		$nama = $this->input->post('nama');
+		$jabatan = $this->input->post('jabatan');
+		$jeniskelamin = $this->input->post('jeniskelamin');
+		$alamat = $this->input->post('alamat');
+		$kecamatan = $this->input->post('kecamatan');
+		$kelurahan = $this->input->post('kelurahan');
+		$provinsi = $this->input->post('provinsi');
+		$kota = $this->input->post('kota');
+		$negara = $this->input->post('negara');
+		$kodenegara = $this->input->post('kodenegara');
+		$kodepos = $this->input->post('kodepos');
+		$notelepon = $this->input->post('notelepon');
+		$email = $this->input->post('email');
+
+		$result = $this->PerwakilanMitraModel->editDataMitraNasional($idperwakilan,$idlembaga,$namalembaga,$nama,$jabatan,$jeniskelamin,$alamat,$kecamatan,$kelurahan,$provinsi,$kota,$negara,$kodenegara,$kodepos,$notelepon,$email);
+
+		if($result == 1) {
+			redirect('c_data_perwakilan_Mitra/index');
+		}
 	}
 
 	public function simpanMitra()
