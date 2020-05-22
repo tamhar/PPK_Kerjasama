@@ -131,4 +131,12 @@ class C_edit_data_lembaga extends CI_Controller {
 		$this->m_edit_data_lembaga->update_data($where,$data,'tb_mou_rf_lembaga');
 		redirect('c_data_lembaga/index');
 	}
+
+	function getKodeNegara() {
+        $this->load->model('m_edit_data_lembaga');
+
+        $negara = $this->input->post('negara', true);
+        $kodenegara = $this->m_edit_data_lembaga->getKodeNegara($negara);
+        echo json_encode($kodenegara);
+    }
 }
