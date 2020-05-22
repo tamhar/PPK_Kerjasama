@@ -53,12 +53,7 @@
 					<label class="col-sm-2 col-form-label"> Kota </label>
 					<div class="col-sm-4">
 						<select name="kota" id="kota" class="form-control" required>          
-							<option selected="<?= $id_kota; ?>" value="<?= $id_kota; ?>"><?= $kota; ?></option>                    
-							<?php          
-							foreach($allkota as $data){ // Lakukan looping pada variabel siswa dari controller           
-								echo "<option value='".$data->id_kota."'>".$data->nama_kota."</option>";          
-							}          
-							?>        
+							<option selected="<?= $id_kota; ?>" value="<?= $id_kota; ?>"><?= $kota; ?></option>           
 						</select>
 					</div>
 				</div>
@@ -101,10 +96,36 @@
 				</div>
 			</form>
 			<div class="col-sm-11">
-			<div class="pull-right">
-				<button class="btn" onclick="location.href='<?php echo site_url('c_data_lembaga/index') ?>'">Batal</button>
+				<div class="pull-right">
+					<button class="btn" onclick="location.href='<?php echo site_url('c_data_lembaga/index') ?>'">Batal</button>
+				</div>
 			</div>
-		</div>
 			<!-- End Form -->
 		</div>
 	</div>
+
+	<script>
+		$('#provinsi').change(function(){ 
+			var provinsi = $(this).val();
+			$.ajax({
+				url : "<?php echo site_url('c_edit_data_lembaga/getKabKota');?>",
+				type : "POST",
+				data : {provinsi: provinsi},
+				async : true,
+				dataType : 'json',
+				success: function(data){
+
+					var html = '';
+					var i;
+					for(i=0; i<data.length; i++){
+						html += '<option value='+data[i].id_kota+'>'+data[i].nama_kota+'</option>';
+					}
+					$('#kota').html(html);
+
+				},
+				error: function(ts) { 
+					alert(ts.responseText) 
+				}
+			});  
+		});
+	</script>

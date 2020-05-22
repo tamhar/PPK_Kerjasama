@@ -117,7 +117,6 @@
 
 					var html = '';
 					var i;
-					var namaBulan = '';
 					for(i=0; i<data.length; i++){
 						html += '<option value='+data[i].id_kota+'>'+data[i].nama_kota+'</option>';
 					}

@@ -133,10 +133,18 @@ class C_edit_data_lembaga extends CI_Controller {
 	}
 
 	function getKodeNegara() {
-        $this->load->model('m_edit_data_lembaga');
+		$this->load->model('m_edit_data_lembaga');
 
-        $negara = $this->input->post('negara', true);
-        $kodenegara = $this->m_edit_data_lembaga->getKodeNegara($negara);
-        echo json_encode($kodenegara);
-    }
+		$negara = $this->input->post('negara', true);
+		$kodenegara = $this->m_edit_data_lembaga->getKodeNegara($negara);
+		echo json_encode($kodenegara);
+	}
+
+	function getKabKota() {
+		$this->load->model('m_edit_data_lembaga');
+
+		$provinsi = $this->input->post('provinsi', true);
+		$kabkota = $this->m_edit_data_lembaga->getKabKota($provinsi);
+		echo json_encode($kabkota);
+	}
 }

@@ -209,6 +209,11 @@ class M_edit_data_lembaga extends CI_Model{
 		public function getKodeNegara($negara){
 			$query = $this->db->query('SELECT kode_telpon_negara FROM tb_mou_rf_negara  WHERE id_negara = "'.$negara.'"');
 			return $query->result();
+		}
+
+		public function getKabKota($provinsi){
+			$query = $this->db->query('SELECT id_kota, nama_kota FROM tb_mou_rf_kota  WHERE id_provinsi = "'.$provinsi.'" ORDER BY nama_kota');
+			return $query->result();
 		}	
 	}
 	?>
