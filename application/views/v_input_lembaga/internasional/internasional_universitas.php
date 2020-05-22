@@ -1,3 +1,4 @@
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-1.10.2.min.js"></script>
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h2>Input Lembaga Mitra (Internasional - Universitas)</h2>
@@ -68,16 +69,8 @@
 			</div>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label"> No Telepon </label>
-				<div class="col-sm-2">
-					<select name="kodenegara" id="kodenegara" class="form-control" required>          
-						<option disabled="true" selected="true">Kode</option>                    
-						<?php          
-						foreach($kode_telpon as $data){ 
-							// Lakukan looping pada variabel dari controller            
-							echo "<option value='".$data->kode_telpon_negara."'>".$data->kode_telpon_negara."</option>";      
-						}          
-						?>        
-					</select>
+				<div class="col-sm-2 getKodeNegara">
+					<input type="text" class="form-control" id="kodenegara" name="kodenegara" value="" readonly>
 				</div>
 				<div class="col-sm-8">
 					<input type="tel" class="form-control" name="telepon_lembaga" required> <!--pattern="[0-9]{3}[0-9]{4}[0-9]{4}"-->
@@ -110,3 +103,23 @@
 		<!-- End Form -->
 	</div>
 </div>
+
+<script>
+	$('#negara').change(function(){ 
+		var negara = $(this).val();
+		$.ajax({
+			url : "<?php echo site_url('c_input_lembaga/getKodeNegara');?>",
+			type : "POST",
+			data : {negara: negara},
+			async : true,
+			dataType : 'json',
+			success: function(data){
+				$('.getKodeNegara').html('<input type="text" class="form-control" id="kodenegara" name="kodenegara" value="'+data[0].kode_telpon_negara+'" readonly>');
+
+			},
+			error: function(ts) { 
+				alert(ts.responseText) 
+			}
+		});  
+	});
+</script>

@@ -23,7 +23,6 @@ class C_input_lembaga extends CI_Controller {
 		$this->load->model('m_input_lembaga/internasional');
 		$data['id_lembaga'] = $this->internasional->getIdUniv();
 		$data['nama_negara'] = $this->internasional->getNegara();
-		$data['kode_telpon'] = $this->internasional->getTelpon();
 		$this->load->template('v_input_lembaga/internasional/internasional_universitas', $data);
 	}
 	
@@ -125,4 +124,12 @@ class C_input_lembaga extends CI_Controller {
 		$this->nasional->input_data($data,'tb_mou_rf_lembaga');
 		redirect('c_data_lembaga/index');
 	}
+
+	function getKodeNegara() {
+        $this->load->model('m_input_lembaga/internasional');
+
+        $negara = $this->input->post('negara', true);
+        $kodenegara = $this->internasional->getKodeNegara($negara);
+        echo json_encode($kodenegara);
+    }
 }

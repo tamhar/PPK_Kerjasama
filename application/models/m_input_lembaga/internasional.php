@@ -144,5 +144,10 @@ class Internasional extends CI_Model{
 		function input_data($data,$table){
 			$this->db->insert($table,$data);
 		}
+
+		public function getKodeNegara($negara){
+			$query = $this->db->query('SELECT kode_telpon_negara FROM tb_mou_rf_negara  WHERE id_negara = "'.$negara.'"');
+			return $query->result();
+		}
 	}
 	?>
