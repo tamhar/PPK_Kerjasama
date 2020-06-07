@@ -3,18 +3,10 @@
 	<a href="<?php echo site_url('dashboard');?>"><i class="ti ti-home"></i><span>Dashboard</span></a>
 </li>
 <li>
-	<a href="javascript:;"><i class="ti ti-layout"></i><span>Perwakilan STIKI</span></a>
-	<ul class="acc-menu">
-		<li class="nav-item"><a class="nav-link" href="<?php echo site_url('c_input_perwakilan_STIKI/index') ?>">Input data Perwakilan STIKI</a></li>
-		<li class="nav-item"><a class="nav-link" href="<?php echo site_url('c_data_perwakilan_STIKI/index') ?>">Data Perwakilan STIKI</a></li>
-	</ul>
-</li>
-<li>
 	<a href="javascript:;"><i class="ti ti-layout"></i><span>Kerjasama</span></a>
 	<ul class="acc-menu">
 		<li class="nav-item"><a class="nav-link" href="<?php echo site_url('c_input_kerjasama/index') ?>">Input data Kerjasama</a></li>
 		<li class="nav-item"><a class="nav-link" href="<?php echo site_url('c_data_kerjasama/index') ?>">Data Kerjasama</a></li>
-		<li class="nav-item"><a class="nav-link" href="<?php echo site_url('c_data_berkas/index') ?>">Data Berkas</a></li>
 	</ul>
 </li>
 <li>
