@@ -12,7 +12,7 @@
 				</div>
 			</div>
 			<div class="bottom">
-				<a href="###"><p><b>Lihat detail</b></p></a>
+				<a href="c_data_kerjasama/index"><p><b>Lihat detail</b></p></a>
 			</div>
 		</div>
 		
@@ -26,7 +26,7 @@
 				</div>
 			</div>
 			<div class="bottom">
-				<a href="###"><p><b>Lihat detail</b></p></a>
+				<a href="c_data_kerjasama/index"><p><b>Lihat detail</b></p></a>
 			</div>
 		</div>
 		
@@ -40,7 +40,7 @@
 				</div>
 			</div>
 			<div class="bottom">
-				<a href="###"><p><b>Lihat detail</b></p></a>
+				<a href="c_data_kerjasama/index"><p><b>Lihat detail</b></p></a>
 			</div>
 		</div>
 		
@@ -54,7 +54,7 @@
 				</div>
 			</div>
 			<div class="bottom">
-				<a href="###" style="color:#D9001B;"><p><b>Lihat detail</b></p></a>
+				<a href="c_data_kerjasama/index" style="color:#D9001B;"><p><b>Lihat detail</b></p></a>
 			</div>
 		</div>
 	</div>
