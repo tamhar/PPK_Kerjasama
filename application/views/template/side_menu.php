@@ -32,6 +32,3 @@
 		<li class="nav-item"><a class="nav-link" href="<?php echo site_url('c_data_perwakilan_Mitra/index') ?>">Data Perwakilan Mitra</a></li>
 	</ul>
 </li>
-<li>
-	<a href="<?php //echo site_url('dashboard');?>"><i class="ti ti-home"></i><span>Pengaturan Pengguna</span></a>
-</li>
