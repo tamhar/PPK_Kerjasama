@@ -1,17 +1,18 @@
 <div class="panel panel-default">
     <div class="panel-heading">
+        
         <h2><?= $this->uri->segment(2) == 'edit' ? 'Edit Kerjasama' : 'Input kerjasama' ?></h2>
         <div class="panel-ctrls" data-actions-container="" data-action-collapse='{"target": ".panel-body"}'></div>
     </div>
     <div class="panel-body">
         <!-- Form Mitra -->
-        <form method="POST" action="<?php echo  $this->uri->segment(2) == 'edit' ? site_url('c_input_kerjasama/update/' . $id) : site_url('c_input_kerjasama/insert_data_kerjasama'); ?>">
+        <form method="POST" action="<?php echo  $this->uri->segment(2) == 'edit' ? site_url('c_update_kerjasama/update/' . $id) : site_url('c_input_kerjasama/insert_data_kerjasama'); ?>">
             <div class="form-group row">
                 <label for="kodekerjasama" class="col-sm-2 col-form-label">
                  Kode Kerjasama
                 </label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control"  id="id_kerjasama" name="id_kerjasama" placeholder="kode kerjasama" disabled="">
+                  <input type="text" class="form-control"  id="id_kerjasama" name="id_kerjasama" value="<?= $id ?>" disabled="">
                 </div>
             </div>
             </div>
@@ -20,7 +21,7 @@
                     Deskripsi
                 </label>
                 <div class="col-sm-10">
-                <textarea id="w3mission" rows="4" cols="50" id="deskripsi_kerjasama" name="deskripsi_kerjasama"><?php echo @$user->deskripsi;?></textarea>
+                <textarea id="w3mission" rows="4" cols="50" id="deskripsi_kerjasama" name="deskripsi_kerjasama"><?= $user[0]['DESKRIPSI_KERJASAMA'] ?></textarea>
                 </div>
             </div>
             <div class="form-group row">
@@ -28,7 +29,7 @@
                     Tanggal Mulai Kerjasama
                 </label>
                 <div class="col-sm-10">
-                  <input type="date" class="form-control" id="tanggal_mulai_kerjasama" name="tanggal_mulai_kerjasama" value="<?php echo @$user->tanggal_mulai_kerjasama;?>">
+                  <input type="date" class="form-control" id="tanggal_mulai_kerjasama" name="tanggal_mulai_kerjasama" value="<?= $user[0]['TANGGAL_MULAI_KERJASAMA'] ?>">
                 </div>
             </div>
             <div class="form-group row">
@@ -36,7 +37,7 @@
                     Tanggal Selesai
                 </label>
                 <div class="col-sm-10">
-                  <input type="date" class="form-control" id="tanggal_selesai_kerjasama" name="tanggal_selesai_kerjasama" value="<?php echo @$user->tanggal_selesai;?>">
+                  <input type="date" class="form-control" id="tanggal_selesai_kerjasama" name="tanggal_selesai_kerjasama" value="<?= $user[0]['TANGGAL_SELESAI_KERJASAMA'] ?>">
                 </div>
             </div>
             <div class="form-group row">
@@ -45,7 +46,7 @@
                 </label>
                 <div class="col-sm-10">
                   <select class="form-control" name="id_lembaga" id="id_lembaga">
-                       <option disabled="true" selected="true">Pilih Lembaga</option>                    
+                       <option selected="<?= $user[0]['ID_LEMBAGA']; ?>" value="<?= $user[0]['ID_LEMBAGA']; ?>"><?= $user[0]['NAMA_LEMBAGA']; ?></option>                    
                         <?php          
                             foreach($lembaga as $data){ // Lakukan looping pada variabel siswa dari controller           
                                 echo "<option value='".$data->id_lembaga."'>".$data->nama_lembaga."</option>";          
@@ -60,27 +61,27 @@
                 </label>
                 <div class="col-sm-10">
                   <select class="form-control" name="perwakilanlembaga" id="perwakilanlembaga">
-                         <option disabled="true" selected="true">Pilih Perwakilan</option>   
+                         <option selected="<?= $user[0]['NAMA_PERWAKILAN_LEMBAGA']; ?>" value="<?= $user[0]['NAMA_PERWAKILAN_LEMBAGA']; ?>"><?= $user[0]['NAMA_PERWAKILAN_LEMBAGA']; ?></option>   
 
                     </select>
                 </div>
             </div>
-            <div class="form-group row">
+           <!--  <div class="form-group row">
                 <label for="uploadberkas" class="col-sm-2 col-form-label">
                     Berkas mou
                 </label>
                 <div class="col-sm-4">
                   <input type="file" class="form-control" id="uploadberkas" name="uploadberkas">
                 </div>
-            </div>
-           <!--  <div class="form-group row">
+            </div> -->
+            <div class="form-group row">
                 <label for="uploadberkas" class="col-sm-2 col-form-label">
                     Berkas moa
                 </label>
                 <div class="col-sm-4">
                   <input type="file" class="form-control" id="uploadberkas" name="uploadberkas">
                 </div>
-            </div> -->
+            </div>
                 
             <div class="form-group row">
                 <label for="statuskerjasama" class="col-sm-2 col-form-label">
