@@ -46,7 +46,7 @@
 				</a>
 			</span>
 			
-			<a class="navbar-brand" href="<?php echo base_url(); ?>">Avenxo</a>
+			
 	
 			<div class="toolbar-icon-bg hidden-xs" id="toolbar-search">
 				<div class="input-group">
