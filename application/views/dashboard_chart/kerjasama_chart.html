@@ -1,0 +1,48 @@
+<canvas id="myChart"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sep','Oct','Nov','Dec'],
+        datasets: [{
+			label: 'Jumlah Kerjasama',
+			backgroundColor: '#616161',
+			borderWidth: '1',
+			borderColor: '#616161',
+			fill: false,
+			radius: 5,
+			suggestedMin: 0,
+            data : [<?php
+					for ($a=1; $a<=12; $a++){
+							echo $chartKS[$a]->chart;
+							echo ',';
+					}
+			?>]
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+	tooltips: {
+          mode: 'label'
+      },
+      responsive: true,
+      scales: {
+			yAxes: [{
+
+              stacked: true,
+               ticks: {
+                  min: 0,
+                  stepSize: 1,
+              }
+
+          }]
+		}
+	}
+});
+</script>

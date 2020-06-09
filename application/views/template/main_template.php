@@ -19,6 +19,9 @@
 	
 	<link href="<?php echo base_url(); ?>assets/as_custom/css/basic.css" rel="stylesheet" type="text/css"/>
 	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 	<script type="text/javascript" src="<?php echo CDN;?>assets/js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="<?php echo CDN;?>assets/js/jqueryui-1.10.3.min.js"></script>
 	<script type="text/javascript" src="<?php echo CDN;?>assets/js/bootstrap.min.js"></script>

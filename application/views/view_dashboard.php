@@ -1,12 +1,82 @@
-
-
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<h2>Selamat datang di template AVENXO</h2>
-			<div class="panel-ctrls" data-actions-container="" data-action-collapse='{"target": ".panel-body"}'></div>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/dashboard.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<div class="panel panel-default">
+	<div class="flex-container"> 
+		<div class="main-box">
+			<div class="flex-inside">
+				<div class="box-left">
+				<?php echo $ksdn->dalamnegri; ?>
+				</div>
+				<div class="box-right">
+				Kerjasama Dalam Negeri Tahun Ini
+				</div>
+			</div>
+			<div class="bottom">
+				<a href="###"><p><b>Lihat detail</b></p></a>
+			</div>
 		</div>
-		<div class="panel-body">
-			<p>Words! Mere words! How terrible they were! How clear, and vivid, and cruel! One could not escape from them. And yet what a subtle magic there was in them! They seemed to be able to give a plastic form to formless things, and to have a music of their own as sweet as that of viol or of lute. Mere words! Was there anything so real as words?</p>
+		
+		<div class="main-box">
+			<div class="flex-inside">
+				<div class="box-left">
+				<?php echo $ksln->luarnegri; ?>
+				</div>
+				<div class="box-right">
+				Kerjasama Luar Negeri Tahun Ini
+				</div>
+			</div>
+			<div class="bottom">
+				<a href="###"><p><b>Lihat detail</b></p></a>
+			</div>
+		</div>
+		
+		<div class="main-box">
+			<div class="flex-inside">
+				<div class="box-left">
+				<?php echo $realisasi->terlaksana; ?>
+				</div>
+				<div class="box-right">
+				Realisasi Kerjasama Mitra Tahun Ini
+				</div>
+			</div>
+			<div class="bottom">
+				<a href="###"><p><b>Lihat detail</b></p></a>
+			</div>
+		</div>
+		
+		<div class="main-box">
+			<div class="flex-inside">
+				<div class="box-left" style="background-color:#D9001B;">
+				<?php echo $ksab->berakhir; ?>
+				</div>
+				<div class="box-right">
+				Kerjasama yang akan berakhir
+				</div>
+			</div>
+			<div class="bottom">
+				<a href="###" style="color:#D9001B;"><p><b>Lihat detail</b></p></a>
+			</div>
 		</div>
 	</div>
 	
+	<div style="display:flex;">
+		<div class="chart">
+			<div class="chart-top">
+			Kerjasama Tahun Ini
+			</div>
+			<div class="chart-bottom">
+			<?php include "dashboard_chart/kerjasama_chart.html"; ?>
+			</div>
+		</div>
+		
+		<div>
+			<div class="total-berkas">
+				<div class="berkas-top">
+				Total Berkas Kerjasama
+				</div>
+				<?php include "dashboard_chart/berkas_donut_chart.html"; ?>
+			</div>
+			
+		</div>
+	</div>
+</div>

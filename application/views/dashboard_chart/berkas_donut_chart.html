@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+</head>
+<body>
+	<div id="chart-berkas" style="width:270px; height:270px; margin:auto;">	
+	
+	<script>
+		new Morris.Donut({
+			element: 'chart-berkas',
+			
+			data: [
+				{ label: "Total MoU", value: <?php echo $mou->Total; ?> },
+				{ label: "Total MoA", value: <?php echo $moa->Total; ?> },
+			]
+		});
+	</script>
+	</div>
+</body>
+</html>
